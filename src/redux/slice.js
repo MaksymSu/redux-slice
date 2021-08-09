@@ -1,5 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit"
 
+
+//Слайс - это по сути обьект с готовым редьюсером, который сделан без констант. Можно удалять rootReducer, actions и types
+
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: 22,
