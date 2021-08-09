@@ -13,7 +13,7 @@ import {counterSlice} from "./redux/slice";
 
 
 const store = createStore(
-  counterSlice.reducer, 0,
+  counterSlice.reducer,
   applyMiddleware(logger)
 );
 
@@ -35,4 +35,4 @@ function render() {
 
 store.subscribe(render);
 
-//store.dispatch(init());
+store.dispatch(counterSlice.actions.init());
