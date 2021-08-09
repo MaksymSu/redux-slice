@@ -5,7 +5,7 @@ import {INCREMENT} from "./redux/types";
 
 import {logger} from "redux-logger";
 import {rootReducer} from "./redux/rootReducer";
-import {decrement, increment} from "./redux/actions";
+import {decrement, increment, init} from "./redux/actions";
 
 
 const store = createStore(
@@ -13,6 +13,7 @@ const store = createStore(
   0,
   applyMiddleware(logger)
 );
+
 
 
 
@@ -30,3 +31,5 @@ function render() {
 }
 
 store.subscribe(render);
+
+store.dispatch(init());
