@@ -9,7 +9,7 @@ import {logger} from "redux-logger";
 //import {increment, decrement, reducer} from "./redux/slice";
 
 
-import {counterSlice} from "./redux/slice";
+import {counterSlice, increment, decrement, init} from "./redux/slice";
 
 
 const store = createStore(
@@ -22,11 +22,11 @@ const store = createStore(
 
 
 document.getElementById('add').addEventListener('click',
-  () => store.dispatch(counterSlice.actions.increment())
+  () => store.dispatch(increment())
 );
 
 document.getElementById('sub').addEventListener('click',
-  () => store.dispatch(counterSlice.actions.decrement())
+  () => store.dispatch(decrement())
 );
 
 function render() {
