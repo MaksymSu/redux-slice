@@ -1,16 +1,19 @@
 import './styles.css'
 
 import {createStore, applyMiddleware} from "redux";
-import {INCREMENT} from "./redux/types";
+//import {INCREMENT} from "./redux/types";
 
 import {logger} from "redux-logger";
-import {rootReducer} from "./redux/rootReducer";
-import {decrement, increment, init} from "./redux/actions";
+//import {rootReducer} from "./redux/rootReducer";
+//import {decrement, increment, init} from "./redux/actions";
+//import {increment, decrement, reducer} from "./redux/slice";
+
+
+import {counterSlice} from "./redux/slice";
 
 
 const store = createStore(
-  rootReducer,
-  0,
+  counterSlice.reducer, 0,
   applyMiddleware(logger)
 );
 
@@ -19,11 +22,11 @@ const store = createStore(
 
 
 document.getElementById('add').addEventListener('click',
-  () => store.dispatch(increment())
+  () => store.dispatch(counterSlice.actions.increment())
 );
 
 document.getElementById('sub').addEventListener('click',
-  () => store.dispatch(decrement())
+  () => store.dispatch(counterSlice.actions.decrement())
 );
 
 function render() {
@@ -32,4 +35,4 @@ function render() {
 
 store.subscribe(render);
 
-store.dispatch(init());
+//store.dispatch(init());
